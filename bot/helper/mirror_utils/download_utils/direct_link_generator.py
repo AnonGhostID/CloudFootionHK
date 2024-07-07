@@ -428,21 +428,22 @@ def pixeldrain(url):
     file_id = url.split("/")[-1]
     if url.split("/")[-2] == "l":
         info_link = f"https://pixeldrain.com/api/list/{file_id}"
-        dl_link = f"https://pixeldrain.com/api/list/{file_id}/zip?download"
+        dl_link = f"https://pd.cybar.xyz/{file_id}"
+        # dl_link = f"https://pixeldrain.com/api/list/{file_id}/zip?download"
     else:
         info_link = f"https://pixeldrain.com/api/file/{file_id}/info"
-        dl_link = f"https://pixeldrain.com/api/file/{file_id}?download"
+        dl_link = f"https://pd.cybar.xyz/{file_id}"
+        # dl_link = f"https://pixeldrain.com/api/file/{file_id}?download"
     with create_scraper() as session:
         try:
             resp = session.get(info_link).json()
         except Exception as e:
             raise DirectDownloadLinkException(f"ERROR: {e.__class__.__name__}") from e
     if resp["success"]:
-        converted_link = f"https://pd.cybar.xyz/{resp['convertedLink']}"
-        return converted_link
+        return dl_link
     else:
         raise DirectDownloadLinkException(
-            f"ERROR: Can't download due to {resp['message']}.")
+            f"ERROR: Cant't download due {resp['message']}.")
 
 
 def antfiles(url):
