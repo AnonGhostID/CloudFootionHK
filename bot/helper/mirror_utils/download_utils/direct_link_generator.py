@@ -438,10 +438,11 @@ def pixeldrain(url):
         except Exception as e:
             raise DirectDownloadLinkException(f"ERROR: {e.__class__.__name__}") from e
     if resp["success"]:
-        return dl_link
+        converted_link = f"https://pd.cybar.xyz/{resp['convertedLink']}"
+        return converted_link
     else:
         raise DirectDownloadLinkException(
-            f"ERROR: Cant't download due {resp['message']}.")
+            f"ERROR: Can't download due to {resp['message']}.")
 
 
 def antfiles(url):
