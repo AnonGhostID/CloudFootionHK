@@ -831,14 +831,14 @@ def homepage():
 </head>
 <body>
     <div class="header">
-        <h1>WZML-X</h1>
+        <h1>FootionCloud BOT</h1>
     </div>
     <div class="content">
         <img src="https://i.ibb.co.com/tZ2DFD5/b89a150b70014b14b22f2b94a9efc299.png" class="image">
         
     </div>
     <div class="footer">
-© 2022-23 WZML-X. All Rights Reserved.
+© 2021-24 FootionCloud. All Rights Reserved.
     </div>
 </body>
 </html>
