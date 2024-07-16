@@ -835,9 +835,7 @@ def homepage():
     </div>
     <div class="content">
         <img src="https://i.ibb.co.com/tZ2DFD5/b89a150b70014b14b22f2b94a9efc299.png" class="image">
-        <a href="https://google.com" style="text-decoration: none;">
-            <button class="button">Join Updates Channel Now</button>
-        </a>
+        
     </div>
     <div class="footer">
 © 2022-23 WZML-X. All Rights Reserved.
