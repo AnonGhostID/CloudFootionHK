@@ -177,11 +177,11 @@ class WZMLStyle:
 
     #####---------PROGRESSIVE STATUS-------
     BAR =               '\n┃ {Bar}'
-    PROCESSED =         '\n┠ <b>Processed:</b> {Processed}'
+    PROCESSED =         '\n┠ <b>Diproses:</b> {Processed}'
     STATUS =            '\n┠ <b>Status:</b> <a href="{Url}">{Status}</a>'
-    ETA =                                                ' | <b>ETA:</b> {Eta}'
-    SPEED =             '\n┠ <b>Speed:</b> {Speed}'
-    ELAPSED =                                     ' | <b>Elapsed:</b> {Elapsed}'
+    ETA =                                                ' | <b>Estimasi:</b> {Eta}'
+    SPEED =             '\n┠ <b>Kecepatan:</b> {Speed}'
+    ELAPSED =                                     ' | <b>Waktu terpakai:</b> {Elapsed}'
     ENGINE =            '\n┠ <b>Engine:</b> {Engine}'
     STA_MODE =          '\n┠ <b>Mode:</b> {Mode}'
     SEEDERS =           '\n┠ <b>Seeders:</b> {Seeders} | '
@@ -233,7 +233,7 @@ class WZMLStyle:
     COUNT_TYPE = '┠ <b>Type: </b>{COUNT_TYPE}\n'
     COUNT_SUB =  '┠ <b>SubFolders: </b>{COUNT_SUB}\n'
     COUNT_FILE = '┠ <b>Files: </b>{COUNT_FILE}\n'
-    COUNT_CC =   '┖ <b>By: </b>{COUNT_CC}\n'
+    COUNT_CC =   '┖ <b>Oleh: </b>{COUNT_CC}\n'
     # ---------------------
 
     # LIST ---> gd_list.py
