@@ -104,7 +104,7 @@ class WZMLStyle:
     # ---------------------
 
     # async def restart(client, message): ---> __main__.py
-    RESTARTING = '<i>Restarting...</i>'
+    RESTARTING = '<i>Memulai Ulang...</i>'
     # ---------------------
 
     # async def restart_notification(): ---> __main__.py
@@ -150,14 +150,14 @@ class WZMLStyle:
     L_LL_MSG =              '➲ <b><i>File(s) have been Sent. Access via Links...</i></b>\n'
     
     # ----- MIRROR -------
-    M_TYPE =                '┠ <b>Type: </b>{Mimetype}\n'
+    M_TYPE =                '┠ <b>Tipe: </b>{Mimetype}\n'
     M_SUBFOLD =             '┠ <b>SubFolders: </b>{Folder}\n'
-    TOTAL_FILES =           '┠ <b>Files: </b>{Files}\n'
+    TOTAL_FILES =           '┠ <b>Total File: </b>{Files}\n'
     RCPATH =                '┠ <b>Path: </b><code>{RCpath}</code>\n'
     M_CC =                  '┖ <b>By: </b>{Tag}\n\n'
     M_BOT_MSG =             '➲ <b><i>Link(s) have been Sent to Bot PM (Private)</i></b>'
     # ----- BUTTONS -------
-    CLOUD_LINK =      '☁️ Cloud Link'
+    CLOUD_LINK =      '☁️ Link Gdrive'
     SAVE_MSG =        '📨 Save Message'
     RCLONE_LINK =     '♻️ RClone Link'
     DDL_LINK =        '📎 {Serv} Link'
