@@ -181,7 +181,7 @@ class WZMLStyle:
     STATUS =            '\n┠ <b>Status:</b> <a href="{Url}">{Status}</a>'
     ETA =                                                ' | <b>Estimasi:</b> {Eta}'
     SPEED =             '\n┠ <b>Kecepatan:</b> {Speed}'
-    ELAPSED =                                     ' | <b>Waktu terpakai:</b> {Elapsed}'
+    ELAPSED =           '\n┠ <b>Waktu terpakai:</b> {Elapsed}'
     ENGINE =            '\n┠ <b>Engine:</b> {Engine}'
     STA_MODE =          '\n┠ <b>Mode:</b> {Mode}'
     SEEDERS =           '\n┠ <b>Seeders:</b> {Seeders} | '
