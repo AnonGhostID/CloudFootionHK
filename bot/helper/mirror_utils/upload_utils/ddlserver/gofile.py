@@ -75,9 +75,11 @@ class Gofile:
         )
         logging.info(f"Folder creation response: {folder_data}")
         
-        if "folderId" not in folder_data:
-            raise KeyError("Folder creation failed, 'folderId' not found in response")
+        if "id" not in folder_data:
+            raise KeyError("Folder creation failed, 'id' not found in response")
         
+        folder_data["folderId"] = folder_data["id"]  # Map 'id' to 'folderId' for consistency
+
         await self.__setOptions(
             contentId=folder_data["folderId"], option="public", value="true"
         )
@@ -88,7 +90,7 @@ class Gofile:
             rel_path = ospath.relpath(root, path)
             parentFolderId = folder_ids.get(ospath.dirname(rel_path), folderId)
             folder_name = ospath.basename(rel_path)
-            currFolderId = (await self.create_folder(parentFolderId, folder_name))["folderId"]
+            currFolderId = (await self.create_folder(parentFolderId, folder_name))["id"]
             await self.__setOptions(
                 contentId=currFolderId, option="public", value="true"
             )
