@@ -3,7 +3,7 @@
 from os import path as ospath
 from os import walk
 from random import choice
-
+import logging
 from aiofiles.os import path as aiopath
 from aiofiles.os import rename as aiorename
 from aiohttp import ClientSession
@@ -68,9 +68,16 @@ class Gofile:
         if not await aiopath.isdir(path):
             raise Exception(f"Path: {path} is not a valid directory")
 
+        account_data = await self.__getAccount()
+        logging.info(f"Account data: {account_data}")
         folder_data = await self.create_folder(
-            (await self.__getAccount())["rootFolder"], ospath.basename(path)
+            account_data["rootFolder"], ospath.basename(path)
         )
+        logging.info(f"Folder creation response: {folder_data}")
+        
+        if "folderId" not in folder_data:
+            raise KeyError("Folder creation failed, 'folderId' not found in response")
+        
         await self.__setOptions(
             contentId=folder_data["folderId"], option="public", value="true"
         )
@@ -220,4 +227,3 @@ class Gofile:
                 data={"token": self.token},
             ) as resp:
                 return await self.__resp_handler(await resp.json())
-                
