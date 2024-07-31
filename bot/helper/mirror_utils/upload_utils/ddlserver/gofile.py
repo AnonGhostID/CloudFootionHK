@@ -86,21 +86,28 @@ class Gofile:
 
         folderId = folderId or folder_data["folderId"]
         folder_ids = {".": folderId}
+        
         for root, _, files in await sync_to_async(walk, path):
             rel_path = ospath.relpath(root, path)
-            parentFolderId = folder_ids.get(ospath.dirname(rel_path), folderId)
-            folder_name = ospath.basename(rel_path)
-            currFolderId = (await self.create_folder(parentFolderId, folder_name))["id"]
-            await self.__setOptions(
-                contentId=currFolderId, option="public", value="true"
-            )
-            folder_ids[rel_path] = currFolderId
+            
+            if rel_path == ".":
+                parentFolderId = folderId
+            else:
+                parentFolderId = folder_ids.get(ospath.dirname(rel_path))
+                folder_name = ospath.basename(rel_path)
+                if folder_name not in folder_ids:
+                    folder_creation_response = await self.create_folder(parentFolderId, folder_name)
+                    logging.info(f"Subfolder creation response: {folder_creation_response}")
+                    folder_ids[rel_path] = folder_creation_response["id"]
+
+            currFolderId = folder_ids[rel_path]
 
             for file in files:
                 file_path = ospath.join(root, file)
                 await self.upload_file(file_path, currFolderId)
 
         return folder_data["code"]
+
 
     async def upload_file(
         self,
